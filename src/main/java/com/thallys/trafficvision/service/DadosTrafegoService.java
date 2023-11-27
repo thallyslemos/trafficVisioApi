@@ -10,7 +10,6 @@ import com.thallys.trafficvision.model.DadosTrafego;
 import com.thallys.trafficvision.model.Rua;
 import com.thallys.trafficvision.repository.DadosTrafegoRepository;
 
-//mapsctruct
 @Service
 public class DadosTrafegoService {
 

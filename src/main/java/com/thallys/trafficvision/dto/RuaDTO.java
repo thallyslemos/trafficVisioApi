@@ -4,12 +4,11 @@ package com.thallys.trafficvision.dto;
 import java.util.List;
 
 public class RuaDTO {
-    //    rua
     private Long id;
     private String nome;
-    private List<DadosTrafegoDTO> dadosTrafego; // Altere o tipo para DadosTrafegoDTO
+    private List<DadosTrafegoDTO> dadosTrafego;
 
-    public RuaDTO(Long id, String nome, List<DadosTrafegoDTO> dadosTrafego) { // Altere o tipo para DadosTrafegoDTO
+    public RuaDTO(Long id, String nome, List<DadosTrafegoDTO> dadosTrafego) {
         this.id = id;
         this.nome = nome;
         this.dadosTrafego = dadosTrafego;

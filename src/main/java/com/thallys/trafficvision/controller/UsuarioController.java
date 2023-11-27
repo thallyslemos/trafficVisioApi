@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thallys.trafficvision.model.Usuario;
+import com.thallys.trafficvision.dto.UsuarioDTO;
 import com.thallys.trafficvision.service.UsuarioService;
 
 import jakarta.validation.Valid;
@@ -20,8 +20,8 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping // criar um dto
-    public ResponseEntity<Void> save(@RequestBody @Valid Usuario usuario) {
+    @PostMapping
+    public ResponseEntity<Void> save(@RequestBody @Valid UsuarioDTO usuario) {
         usuarioService.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).build(); // replicar nos outros controllers
     }
