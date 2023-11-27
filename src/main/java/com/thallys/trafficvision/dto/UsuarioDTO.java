@@ -6,12 +6,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
-public class UsuarioDTO extends Usuario
- {
+public class UsuarioDTO extends Usuario {
+    @Email(message = "Email inválido")
+    private String email;
     @Min(value = 6, message = "Senha deve ter no mínimo 6 caracteres")
     @NotEmpty(message = "Senha é obrigatória")
-    private String email;
-    @Email(message = "Email inválido")
     private String senha;
 
     public String getEmail() {

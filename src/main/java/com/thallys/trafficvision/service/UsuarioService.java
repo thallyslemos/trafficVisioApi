@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.thallys.trafficvision.dto.UsuarioDTO;
 import com.thallys.trafficvision.model.Usuario;
 import com.thallys.trafficvision.repository.UsuarioRepository;
 
@@ -15,13 +16,16 @@ public class UsuarioService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public Usuario save(Usuario usuario) {
+    public Usuario save(UsuarioDTO usuario) {
         if (usuarioRepository.existsByEmail(usuario.getEmail())) {
             throw new RuntimeException("Email já cadastrado");
         }
-        
-        usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
-        return usuarioRepository.save(usuario);
+        System.out.println("----*-----"+ usuarioRepository.existsByEmail(usuario.getEmail()));
+        Usuario usuarioToSave = new Usuario();
+
+        usuarioToSave.setEmail(usuario.getEmail());
+        usuarioToSave.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
+        return usuarioRepository.save(usuarioToSave);
     }
 
     public Usuario findByEmail(String email) {
