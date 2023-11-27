@@ -23,7 +23,7 @@ public class DashboardService {
     @Autowired
     private DadosTrafegoRepository dadosTrafegoRepository;
 
-        public List<RuaDTO> getAllData() {
+        public List<RuaDTO> getAllWithData() {
         List<Rua> ruas = ruaRepository.findAll();
         Map<Long, RuaDTO> ruaDTOMap = new HashMap<>();
 

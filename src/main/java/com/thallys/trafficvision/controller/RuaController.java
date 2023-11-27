@@ -40,7 +40,7 @@ public class RuaController {
 
     @GetMapping("/dados")
     public List<RuaDTO> getWithData() {
-        return dashboardService.getAllData();
+        return dashboardService.getAllWithData();
     }
 
     @PostMapping
