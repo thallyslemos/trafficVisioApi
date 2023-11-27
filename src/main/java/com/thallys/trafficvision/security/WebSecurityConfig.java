@@ -3,6 +3,7 @@ package com.thallys.trafficvision.security;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,6 +24,9 @@ import com.thallys.trafficvision.repository.UsuarioRepository;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+    @Value("${web.url}")
+    private String url;
+
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired
@@ -46,7 +50,7 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedOrigins(Arrays.asList(url));
         configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*")); // Permitir todos os cabeçalhos(?)
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
